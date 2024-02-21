@@ -21,7 +21,7 @@ public class AddPhoneViewModel: ViewModelBase
         var isPriceValid = this.WhenAnyValue(x => x.Price, x => x > 0);
         var isReleaseDateValid = this.WhenAnyValue(x => x.ReleaseDate, x => x != DateTime.Now);
 
-        var isValidObservable = isModelValid.Merge(isPriceValid).Merge(isReleaseDateValid);
+        var isValidObservable = Observable.CombineLatest(isModelValid, isPriceValid, isReleaseDateValid,  (bool1, bool2, bool3) => bool1 && bool2 && bool3);
 
         OkCommand = ReactiveCommand.Create(() => new Phone(Model, Price, ReleaseDate), isValidObservable);
         CancelCommand = ReactiveCommand.Create(() => { });

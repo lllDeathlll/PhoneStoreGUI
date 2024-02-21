@@ -20,7 +20,7 @@
                     <StackPanel Orientation="Horizontal">
                         <TextBlock Padding="6" Background="DarkGray" Text="{Binding Model}"></TextBlock>
                         <TextBlock Padding="6" Background="DarkGray" Text="{Binding Price}"></TextBlock>
-                        <TextBlock Padding="6" Background="DarkGray" Text="{Binding ReleaseDate}"></TextBlock>
+                        <TextBlock Padding="6" Background="DarkGray" Text="{Binding GetReleaseDate}"></TextBlock>
                     </StackPanel>
                 </DataTemplate>
             </ItemsControl.ItemTemplate>
